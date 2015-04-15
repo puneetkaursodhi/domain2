@@ -6,6 +6,10 @@ class Employee {
     String email
     String password
 
+    String toString() {
+        firstName
+    }
+
     static constraints = {
     }
 }
