@@ -1,6 +1,6 @@
 package bootcamp
 
-class Employee {
+class Employee implements Serializable {
     String firstName
     String lastName
     String email
@@ -13,6 +13,13 @@ class Employee {
     }
 
     static transients = ['fullName']
+
+    static mapping = {
+        table "people"
+        firstName column:'fname'
+        version false
+        id composite: ['firstName', 'lastName']
+    }
 
     static constraints = {
     }
