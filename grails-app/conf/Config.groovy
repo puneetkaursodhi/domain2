@@ -115,3 +115,12 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+console.defaultCode = """
+package bootcamp
+
+Employee e = new Employee(firstName:"test")
+println e.firstName
+println e.getFirstName()
+"""
