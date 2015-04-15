@@ -1,0 +1,12 @@
+target
+*.ids
+*.iml
+*.ids
+*.ipr
+*.iws
+.classpath
+.idea
+*.tld
+*plugin.xml
+stacktrace.log
+*.bat
