@@ -22,6 +22,8 @@ class Employee implements Serializable {
     }
 
     static constraints = {
+        email(unique: true)
+        password(size: 5..15, blank: false)
     }
 
     String getFullName() {

@@ -121,6 +121,8 @@ console.defaultCode = """
 package bootcamp
 
 Employee e = new Employee(firstName:"test")
+Employee e = new Employee(firstName:"test",lastName:"hello",email:"a@b.com",password:"test123")
+e.validate()
 println e.firstName
 println e.getFirstName()
 """
