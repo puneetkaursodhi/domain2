@@ -9,7 +9,13 @@ class Employee {
     String toString() {
         firstName
     }
+    
+    static transients = ['fullName']
 
     static constraints = {
+    }
+
+    String getFullName() {
+        return "${firstName} ${lastName}"
     }
 }
