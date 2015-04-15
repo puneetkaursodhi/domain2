@@ -5,11 +5,13 @@ class Employee {
     String lastName
     String email
     String password
+    Date dateCreated
+    Date lastUpdated
 
     String toString() {
         firstName
     }
-    
+
     static transients = ['fullName']
 
     static constraints = {
