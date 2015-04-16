@@ -23,7 +23,11 @@ class Employee implements Serializable {
 
     static constraints = {
         email(unique: true)
-        password(size: 5..15, blank: false)
+        password(size: 5..15, blank: false,validator:{val, obj ->
+            if(val?.equals(obj.firstName)) {
+                return false
+            }
+        })
     }
 
     String getFullName() {
