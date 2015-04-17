@@ -23,4 +23,21 @@ class UtilController {
                 .save(flush: true)
         render "done"
     }
+
+    def manyToManyWithOwner(){
+        new Author(name: "Stephen King")
+                .addToBooks(new Book(title: "The Stand"))
+                .addToBooks(new Book(title: "The Shining"))
+                .save(flush: true)
+        render "done"
+    }
+
+    def manyToManyWithOwned(){
+        new Book(title:"Groovy in Action")
+                .addToAuthors(new Author(name:"Dierk Koenig"))
+                .addToAuthors(new Author(name:"Guillaume Laforge"))
+                .save()
+        render "done"
+    }
+
 }
