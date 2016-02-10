@@ -22,7 +22,7 @@ class Employee implements Serializable {
     }
 
     static constraints = {
-        email(unique: true)
+        email(unique: true,email: true)
         password(size: 5..15, blank: false,validator:{val, obj ->
             if(val?.equalsIgnoreCase(obj.firstName)) {
                 String suggestion = obj.firstName.reverse()
@@ -32,6 +32,7 @@ class Employee implements Serializable {
     }
 
     String getFullName() {
-        return "${firstName} ${lastName}"
+        [firstName, lastName].findAll { it }.join(' ')
+
     }
 }
