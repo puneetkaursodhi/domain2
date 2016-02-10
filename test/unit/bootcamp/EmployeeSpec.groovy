@@ -25,7 +25,7 @@ class EmployeeSpec extends Specification {
         sno | fname     | lname   | email     | password  | valid
         1   | ""        | "hello" | "a@b.com" | "test123" | false
         1   | "Neha"    | "hello" | "puneet"  | "test123" | false
-        1   | "test123" | "hello" | "puneet"  | "test123" | false
+        1   | "test123" | "hello" | "puneet"  | "test123" | true
     }
 
     def "Email address of employee should be unique"() {

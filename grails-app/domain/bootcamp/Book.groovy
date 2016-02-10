@@ -2,6 +2,7 @@ package bootcamp
 
 class Book {
     String title
-    static belongsTo = Author
-    static hasMany = [authors: Author]
+//    static belongsTo = [author: Author]
+//    static belongsTo = Author
+//    static hasMany = [authors: Author]
 }
