@@ -5,21 +5,34 @@ class Employee implements Serializable {
     String lastName
     String email
     String password
+    String confirmPassword
     Date dateCreated
     Date lastUpdated
+    Long personId
 
     String toString() {
         firstName
     }
 
-    static transients = ['fullName']
+    static transients = ['fullName', 'confirmPassword']
 
     static mapping = {
-        firstName(type: 'text')
+        table 'person'
+        firstName column: 'fname', type: 'text'
+        id name: 'personId'
+        autoTimestamp(false)
+        sort("firstName":"desc")
     }
 
     static constraints = {
         email(unique: true, email: true)
+        dateCreated(nullable: true)
+        lastUpdated(nullable: true)
+        confirmPassword(bindable:true, blank: false, validator: { val, obj ->
+            if (!obj.id && (obj.password != val || !val)) {
+                return 'password.do.not.match.confirmPassword'
+            }
+        })
         password(size: 5..15, blank: false, validator: { val, obj ->
             if (val?.equalsIgnoreCase(obj.firstName)) {
                 String suggestion = obj.firstName.reverse()
@@ -31,25 +44,5 @@ class Employee implements Serializable {
     String getFullName() {
         [firstName, lastName].findAll { it }.join(' ')
 
-    }
-
-    def beforeInsert() {
-        println "I am inside before insert"
-    }
-
-    def beforeValidate() {
-        println "I am inside before validate"
-    }
-
-    def beforeUpdate() {
-        println "I am inside before update"
-    }
-
-    def afterInsert() {
-        println "I am inside after insert"
-    }
-
-    def afterUpdate() {
-        println "I am inside after update"
     }
 }

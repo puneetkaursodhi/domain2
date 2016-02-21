@@ -52,7 +52,7 @@ class UtilController {
 
     def saveFlow() {
         Employee employee = new Employee(firstName: "Puneet", lastName: "Kaur", email: "puneet@intelligrape.com",
-                password: "puneet")
+                password: "puneet123")
         render employee.save(flush: true)
 
     }
