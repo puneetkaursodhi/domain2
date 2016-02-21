@@ -57,4 +57,23 @@ class UtilController {
 
     }
 
+    def testVersion() {
+        /*
+        code for console
+        import bootcamp.*;
+
+def employee = Employee.get(1)
+println employee.version
+Thread.sleep(3000)
+employee.firstName = "puneet12"
+employee.save(flush:true,failOnError:true)
+println employee.version
+         */
+        Employee employee = Employee.get(1)
+        println employee.version
+        employee.firstName = "Hello123456"
+        employee.save(flush: true, failOnError: true)
+        render employee.version
+    }
+
 }

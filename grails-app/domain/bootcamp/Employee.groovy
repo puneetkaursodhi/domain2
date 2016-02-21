@@ -8,7 +8,7 @@ class Employee implements Serializable {
     String confirmPassword
     Date dateCreated
     Date lastUpdated
-    Long personId
+//    Long personId
 
     String toString() {
         firstName
@@ -19,17 +19,17 @@ class Employee implements Serializable {
     static mapping = {
         table 'person'
         firstName column: 'fname', type: 'text'
-        id name: 'personId'
+//        id name: 'personId'
         autoTimestamp(false)
-        sort("firstName":"desc")
-        version(false)
+        sort("firstName": "desc")
+//        version(false)
     }
 
     static constraints = {
         email(unique: true, email: true)
         dateCreated(nullable: true)
         lastUpdated(nullable: true)
-        confirmPassword(bindable:true, blank: false, validator: { val, obj ->
+        confirmPassword(bindable: true, nullable: true, blank: true, validator: { val, obj ->
             if (!obj.id && (obj.password != val || !val)) {
                 return 'password.do.not.match.confirmPassword'
             }
