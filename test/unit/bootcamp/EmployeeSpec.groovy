@@ -1,16 +1,10 @@
 package bootcamp
 
 import grails.test.mixin.TestFor
-import spock.lang.IgnoreRest
 import spock.lang.Specification
 import spock.lang.Unroll
 
 class EmployeeSpec extends Specification {
-
-    void "test"(){
-        expect:
-            true
-    }
 
     @Unroll("Executing #sno")
     void "test employee validations"() {
