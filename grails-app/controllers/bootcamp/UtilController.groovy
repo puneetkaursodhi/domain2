@@ -4,7 +4,7 @@ class UtilController {
 
     def index() {}
 
-    
+
 
     def testConstraint() {
         Employee employee = new Employee(firstName: "Puneet", lastName: "Kaur", email: "puneet@intelligrape.com",

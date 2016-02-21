@@ -7,4 +7,8 @@ class Airport {
     static constraints = {
 
     }
+
+    static mapping = {
+        flights lazy: false
+    }
 }
