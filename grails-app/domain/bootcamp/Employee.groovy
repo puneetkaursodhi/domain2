@@ -22,6 +22,7 @@ class Employee implements Serializable {
         id name: 'personId'
         autoTimestamp(false)
         sort("firstName":"desc")
+        version(false)
     }
 
     static constraints = {
