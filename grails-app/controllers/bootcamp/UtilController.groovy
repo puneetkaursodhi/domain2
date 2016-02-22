@@ -1,9 +1,11 @@
 package bootcamp
 
+import grails.transaction.Transactional
+
 class UtilController {
+    def sessionFactory
 
     def index() {}
-
 
 
     def testConstraint() {
@@ -60,6 +62,13 @@ airport.flights.each{Flight flight->
 println flight.destination.city
 }
          */
+    }
+
+    def testGetMethod() {
+        Airport airport = Airport.get(1L)
+        airport.name = "This is test..........."
+        render airport.name
+
     }
 
 }
