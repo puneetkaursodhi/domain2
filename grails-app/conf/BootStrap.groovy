@@ -1,3 +1,4 @@
+import bootcamp.Address
 import bootcamp.Airport
 import bootcamp.Employee
 import bootcamp.Flight
@@ -17,6 +18,10 @@ class BootStrap {
             airport.addToFlights(new Flight(number: "Flight-${it}", destination: Location.first()))
         }
         airport.save(failOnError: true)
+
+        5.times {
+            new Address(location: "location-${it}").save()
+        }
     }
     def destroy = {
     }

@@ -71,4 +71,25 @@ println flight.destination.city
 
     }
 
+    def messageTag() {
+        Employee employee = new Employee(firstName: "puneet",password: 'test',confirmPassword: 'hello')
+        if (employee.validate()) {
+            employee.save()
+            render "Saved object"
+        } else {
+            render "${employee.errors.allErrors.collect { message(error: it) }.join(',')}"
+        }
+
+    }
+
+    def cascade(){
+        /*
+        import bootcamp.*;
+
+Employee employee = Employee.get(1)
+employee.addresses.add(Address.first())
+employee.delete()
+         */
+    }
+
 }

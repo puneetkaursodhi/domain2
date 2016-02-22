@@ -10,11 +10,11 @@ class Employee implements Serializable {
     Date lastUpdated
 //    Long personId
 
-    String toString() {
-        firstName
-    }
+
+    static hasMany = [addresses: Address]
 
     static transients = ['fullName', 'confirmPassword']
+
 
     static mapping = {
         table 'person'
@@ -23,7 +23,9 @@ class Employee implements Serializable {
         autoTimestamp(false)
         sort("firstName": "desc")
 //        version(false)
+          addresses cascade: 'all-delete-orphan'
     }
+
 
     static constraints = {
         email(unique: true, email: true)
@@ -45,5 +47,9 @@ class Employee implements Serializable {
     String getFullName() {
         [firstName, lastName].findAll { it }.join(' ')
 
+    }
+
+    String toString() {
+        firstName
     }
 }
